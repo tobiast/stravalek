@@ -1,8 +1,8 @@
-require 'rubygems'
 require 'open-uri'
 require 'json'
-require 'Trackpoint'
-require 'Ride'
+
+require_relative 'Trackpoint'
+require_relative 'Ride'
 
 class Parser
 
@@ -39,10 +39,10 @@ def getRides(riderId)
     i=0
     mappedRides = []
     rides.each do
-      puts "mapped ride"
       mappedRides[i] = Ride.new   
       mappedRides[i].name = rides[i]["name"];
       mappedRides[i].id = rides[i]["id"];
+      puts "mapped ride: " + mappedRides[i].name
       i+=1
     end 
     return mappedRides

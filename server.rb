@@ -1,10 +1,11 @@
-require 'rubygems'  
 require 'sinatra'
-require 'Parser'
-require 'Persister'
+require 'Haml'
+
+require_relative 'Parser'
+require_relative 'Persister'
 
 get '/' do  
-  "Hello, World!"  
+  haml :index
 end
 
 # if a user wants to fetch an activity
@@ -24,30 +25,13 @@ get '/stravaActivities/all' do
   parser = Parser.new  
   rides = parser.getRides("16502")
   puts "number of rides" + rides.size.to_s
-  @HTMLrides = rides
-  #rides.each do |r|
-  #  "HELLO" 
-  #  "#{r.name}"
-  #end
-  erb :allActivities
+  @activities = rides
+  haml :allActivities
 end  
 
 # user info
 get '/stravaUser/:id' do  
-  parser = Parser.new   
+  parser = parser.new   
   parser.getUser(params[:id])
 end  
-
-__END__
-@@ layout
-<html>
-  <body>
-   <%= yield %>
-  </body>
-</html>
-
-@@ allActivities
-<h3>Hello <%= @HTMLrides %>!</h3>
-
-
 
