@@ -12,7 +12,7 @@ ACTIVITY_URL =  BASE_URL + "/v1/streams/"
 ACTIVITIES_URL = BASE_URL + "/v1/rides?athleteId="
 
 def getRide(rideId)  
-  # web_contents  = open('http://www.strava.com/api/v1/streams/21899409') {|f| f.read }
+  #web_contents  = open('http://www.strava.com/api/v1/streams/21899409') {|f| f.read }
   web_contents  = open(rideId +'.json') {|f| f.read }    
   result = JSON.parse(web_contents)
     

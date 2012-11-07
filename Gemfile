@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+ruby '1.9.3'
+gem 'json' 
+gem 'sinatra'
+gem 'nokogiri'
+gem 'mongo'
+gem 'mongo_mapper'
+gem 'shotgun'
+gem 'active_support'
+gem 'bson_ext'

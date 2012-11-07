@@ -1,4 +1,12 @@
 class Ride
-  attr_accessor :name, :id
+  include MongoMapper::Document
+
+  key :name, String
+  key :stravaId, String 
+  key :date, String 
   
+  def describe
+  	puts "#{name} #{stravaId} <#{email}> #{date}"
+  end
+
 end
